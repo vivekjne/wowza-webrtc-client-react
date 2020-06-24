@@ -72,7 +72,7 @@ export class WebRTCPublisher extends React.Component<Props, State> implements IP
     if (!this.isPreviewEnabled && this.videoElement) {
       await this.handler.attachUserMedia(this.videoElement)
     }
-    await this.handler.connect(streamName)
+    await this.handler.connect(streamName).catch(err=>console.log({errorInLib:err}))
   }
 
   public disconnect() {
